@@ -1,122 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
 
-<html lang="en">
 <head>
-    <style>
-      /* .lp_survey_header_area{
-        border-bottom: none !important;
-      } */
-    </style>
-    <!-- BEGIN LivePerson Monitor. -->
-    <script type="text/javascript">window.lpTag=window.lpTag||{},'undefined'==typeof window.lpTag._tagCount?(window.lpTag={wl:lpTag.wl||null,scp:lpTag.scp||null,site:'26206640'||'',section:lpTag.section||'',tagletSection:lpTag.tagletSection||null,autoStart:lpTag.autoStart!==!1,ovr:lpTag.ovr||{},_v:'1.10.0',_tagCount:1,protocol:'https:',events:{bind:function(t,e,i){lpTag.defer(function(){lpTag.events.bind(t,e,i)},0)},trigger:function(t,e,i){lpTag.defer(function(){lpTag.events.trigger(t,e,i)},1)}},defer:function(t,e){0===e?(this._defB=this._defB||[],this._defB.push(t)):1===e?(this._defT=this._defT||[],this._defT.push(t)):(this._defL=this._defL||[],this._defL.push(t))},load:function(t,e,i){var n=this;setTimeout(function(){n._load(t,e,i)},0)},_load:function(t,e,i){var n=t;t||(n=this.protocol+'//'+(this.ovr&&this.ovr.domain?this.ovr.domain:'lptag.liveperson.net')+'/tag/tag.js?site='+this.site);var o=document.createElement('script');o.setAttribute('charset',e?e:'UTF-8'),i&&o.setAttribute('id',i),o.setAttribute('src',n),document.getElementsByTagName('head').item(0).appendChild(o)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var t=this;window.attachEvent?window.attachEvent('onload',function(){t._domReady('domReady')}):(window.addEventListener('DOMContentLoaded',function(){t._domReady('contReady')},!1),window.addEventListener('load',function(){t._domReady('domReady')},!1)),'undefined'===typeof window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(t){this.isDom||(this.isDom=!0,this.events.trigger('LPT','DOM_READY',{t:t})),this._timing[t]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],hooks:lpTag.hooks||[],identities:lpTag.identities||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;</script>
-    <!-- END LivePerson Monitor. -->
-
-    <script>
-      var request = new XMLHttpRequest()
-      var conversationId;
-
-      lpTag.section = ["credit-cards_"];
-
-      //Push SDEs on page load
-      lpTag.sdes.push(
-        {
-          "type": "prodView", //MANDATORY
-          "products": [{ //ARRAY OF PRODUCTS
-            "product": {
-              "name": "Women's Running Shoes", //PRODUCT NAME
-              "category": "shoes", //PRODUCT CATEGORY NAME
-              "sku": "10305020", //PRODUCT SKU OR UNIQUE IDENTIFIER
-              "price": 119.95 //PRODUCT PRICE
-            }
-          }]
-        }
-      );
-
-      //Send SDEs on event
-      function sendSDE(data, eventInfo){
-        lpTag.sdes.push(
-          {
-            "type": "prodView", //MANDATORY
-            "products": [{ //ARRAY OF PRODUCTS
-              "product": {
-                "name": "Chat Opened Shoes", //PRODUCT NAME
-                "category": "shoes", //PRODUCT CATEGORY NAME
-                "sku": "10305020", //PRODUCT SKU OR UNIQUE IDENTIFIER
-                "price": 119.95 //PRODUCT PRICE
-              }
-            }]
-          }
-        );
-        lpTag.sdes.send();
-      }
-
-      lpTag.events.bind("LP_OFFERS", "OFFER_CLICK", sendSDE);
-
-      //Send SDEs using .newPage
-      function btnSendSDE(){
-        lpTag.newPage(
-          "http://localhost:8080/",
-          {
-            sdes: [{   "type": "cart",
-            "total": 11.7,
-            "numItems": 6,
-            "products": [
-                {
-                    "product": {
-                        "name": "prod1",
-                        "category": "category",
-                        "sku": "sku",
-                        "price": 7.8
-                    },
-                    "quantity": 1}
-            ]
-            }]
-          }
-        )
-        // let accountId = '26206640';
-        // request.open('POST', `https://lo.msghist.liveperson.net/messaging_history/api/account/${accountId}/conversations/conversation/search`,)
-      }
-
-      //Bind to LP events + Review data
-      function bindLP(data, eventInfo){
-        console.log("--SDE Added--");
-        console.log(data.conversationId);
-        conversationId = data.conversationId;
-        console.log(eventInfo);
-      }
-
-      lpTag.events.bind("lpUnifiedWindow", "conversationInfo", bindLP);
-
-      // Custom Engagement - Engagement Trigger API
-      function onCustomEngagementClick(){
-        
-        if(lpTag && lpTag.taglets && lpTag.taglets.rendererStub){
-          var clicked = lpTag.taglets.rendererStub.click(1617238950);
-          console.log(`In custom engagement was Clicked? : ${clicked}`);
-        }
-      }
-
-    </script>
-
-    <meta charset="utf-8">
-
-    <title>My Test Page</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
-
+  <title>Yell Dev Provider Test Page</title> 
+  <script type="text/javascript">
+    window.lpTag = window.lpTag || {};
+    window.lpTag.autoStart = false;
+    'undefined' == typeof window.lpTag._tagCount ? (window.lpTag = { wl: lpTag.wl || null, scp: lpTag.scp || null, site: '12419946' || '', section: lpTag.section || '', tagletSection: lpTag.tagletSection || null, autoStart: lpTag.autoStart !== !1, ovr: lpTag.ovr || {}, _v: '1.10.0', _tagCount: 1, protocol: 'https:', events: { bind: function (t, e, i) { lpTag.defer(function () { lpTag.events.bind(t, e, i) }, 0) }, trigger: function (t, e, i) { lpTag.defer(function () { lpTag.events.trigger(t, e, i) }, 1) } }, defer: function (t, e) { 0 === e ? (this._defB = this._defB || [], this._defB.push(t)) : 1 === e ? (this._defT = this._defT || [], this._defT.push(t)) : (this._defL = this._defL || [], this._defL.push(t)) }, load: function (t, e, i) { var n = this; setTimeout(function () { n._load(t, e, i) }, 0) }, _load: function (t, e, i) { var n = t; t || (n = this.protocol + '//' + (this.ovr && this.ovr.domain ? this.ovr.domain : 'lptag.liveperson.net') + '/tag/tag.js?site=' + this.site); var o = document.createElement('script'); o.setAttribute('charset', e ? e : 'UTF-8'), i && o.setAttribute('id', i), o.setAttribute('src', n), document.getElementsByTagName('head').item(0).appendChild(o) }, init: function () { this._timing = this._timing || {}, this._timing.start = (new Date).getTime(); var t = this; window.attachEvent ? window.attachEvent('onload', function () { t._domReady('domReady') }) : (window.addEventListener('DOMContentLoaded', function () { t._domReady('contReady') }, !1), window.addEventListener('load', function () { t._domReady('domReady') }, !1)), 'undefined' === typeof window._lptStop && this.load() }, start: function () { this.autoStart = !0 }, _domReady: function (t) { this.isDom || (this.isDom = !0, this.events.trigger('LPT', 'DOM_READY', { t: t })), this._timing[t] = (new Date).getTime() }, vars: lpTag.vars || [], dbs: lpTag.dbs || [], ctn: lpTag.ctn || [], sdes: lpTag.sdes || [], hooks: lpTag.hooks || [], identities: lpTag.identities || [], ev: lpTag.ev || [] }, lpTag.init()) : window.lpTag._tagCount += 1;
+  </script>
 </head>
 
-<body style="background:rgb(19, 129, 167);">
-  <div id="checkoutContainer"></div>
+<body>
+  <script>
+    lpTag.section = ["searchresults"];
 
-    <a href="https://api.whatsapp.com/send?phone=447411127470">
-      <img src="https://seeklogo.com/images/W/whatsapp-lollipop-logo-B1DF222734-seeklogo.com.png" height="60" width="60">
-    </a>
-    <h1>Jack's Page</h1>
-    <h2>Cart Total:</h2>
-    <h2 id="cartTotal">£120.32</h2>
-    <button onclick="onCustomEngagementClick()">Custom Engagement</button>
-    <button onClick="btnSendSDE()">Send SDE</button>
-  <div id="LE-Hidden-Eng" style="display: none;"></div>
+    function handleNatId(event) {
+      const natId = event.target.elements.natId.value;
+
+      const lpButtonDiv = document.createElement('div');
+      lpButtonDiv.innerHTML = `<h4>${natId}</h4><div class="chat" data-lp-referenceid="${natId}"></div>`;
+
+      document.getElementById('nat-list').appendChild(lpButtonDiv);
+      document.getElementById("nat-form").reset();
+      return false;
+    }
+
+    function lpTagInit() {
+      document.getElementById('confirm-submit').innerHTML = '<p>NAT IDs submitted, loading LP engagments..</p>'
+      window.lpTag.start();
+    }
+
+  </script>
+  <h1>Yell Dev Provider Test Page</h1>
+  <p>Enter NAT IDs into the text box below and click "Add" to add to your list of NATs.<br> When ready, click "Submit" to start LP Tag and load engagements.</p>
+  <span style="display: inline-flex;">
+    <form id="nat-form" onsubmit="handleNatId(event)">
+      Enter Nat ID: <input id="natId" type="text">
+      <input type="submit" value="Add">
+    </form>
+    <button onclick="lpTagInit()" style="margin-left: 2px;">Submit</button>
+  </span>
+  <div id="confirm-submit"></div>
+  <div id="nat-list"></div>
+
 </body>
+
 </html>
