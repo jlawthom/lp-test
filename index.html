@@ -46,7 +46,7 @@
       });
     }
 
-    function lpGetJWT_Issuer1(callback) {
+    window.lpGetJWT_Issuer1 = (callback) => {
       log("LP asked for id_token or auth code in Code Flow");
       // Do your magic…
       // On Success
@@ -129,9 +129,6 @@
   <title>My Test Page</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
-  <meta
-  http-equiv="Content-Security-Policy"
-  content="connect-src wss://*.liveperson.net;" />
 
 </head>
 
