@@ -46,6 +46,14 @@
       });
     }
 
+    function lpGetJWT_Issuer1(callback) {
+      log("LP asked for id_token or auth code in Code Flow");
+      // Do your magic…
+      // On Success
+      callback("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKYWNrIiwiaXNzIjoiaHR0cHM6Ly9pc3N1ZXJ0ZXN0aW5nMS5jb20iLCJleHAiOjE3ODE4ODE4NjYsImlhdCI6MTY4NzE4NzQ2Nn0.SNhgSTUJ87NxYBAgQOx8UH8TxuIN85w9PblScP2fRq5QMmeZqN-UwxPAxE75kSuct9qeL5MqlLK92S6RZga8S8_2PxGIikX-Xsy7cRfVOQ-eUkXY1J_Cc4rik1Sr02rnfzrK9lJlSflIotUfgEgWag8DibVL4JYfx3D_EZZvnntzL3r4Q_6faNJaiEk3e0Pw1J1ncbfEUumCjvOUi-mlRHIUy0Q6JcLFlVxchPaP6Rbf3kpDMDka_8tHDJ8kqZqCh7IkEm7EnKrallLpkIxj3PuI9__9B-uar7I39QlbtJg0oJvOufrDljjq5l2k7sUp2p5xq2iwbyZwsIPZffSD7w");
+      // On Failure
+    }
+
     //Send SDEs on event
     function sendSDE(data, eventInfo) {
       lpTag.sdes.push(
