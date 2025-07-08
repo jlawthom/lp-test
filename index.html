@@ -37,14 +37,14 @@
     // Push Identities
     lpTag.identities = [];
 
-    lpTag.identities.push(identityFn);
-    function identityFn(callback) {
-      callback({
-        iss: "https://issuertesting1.com",
-        acr: "loa1",
-        sub: "Jack"
-      });
-    }
+    // lpTag.identities.push(identityFn);
+    // function identityFn(callback) {
+    //   callback({
+    //     iss: "https://issuertesting1.com",
+    //     acr: "loa1",
+    //     sub: "Jack"
+    //   });
+    // }
 
     window.lpGetJWT_Issuer1 = (callback) => {
       log("LP asked for id_token or auth code in Code Flow");
