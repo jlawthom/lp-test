@@ -22,57 +22,50 @@
     //Push SDEs on page load
     lpTag.sdes.push(
       {
-        "type": "prodView", //MANDATORY
-        "products": [{ //ARRAY OF PRODUCTS
-          "product": {
-            "name": "Women's Running Shoes", //PRODUCT NAME
-            "category": "shoes", //PRODUCT CATEGORY NAME
-            "sku": "10305020", //PRODUCT SKU OR UNIQUE IDENTIFIER
-            "price": 119.95 //PRODUCT PRICE
-          }
-        }]
+        "type": "personal", //MANDATORY
+        "personal": {
+          "firstname": "John", // FIRST NAME
+          "lastname": "Doe", // SURNAME
+          "age": {
+            "age": 34, // AGE AS INTEGER
+            "year": 1980, // BIRTH YEAR
+            "month": 4, // BIRTH MONTH
+            "day": 15 // BIRTH DAY
+          },
+          "contacts": [{
+            "email": "myname@example.com", // EMAIL
+            "phone": "+1 212-788-8877", // PHONE NUMBER
+            "address": {
+              "country": "Russia", // COUNTRY
+              "region": "Moscow" // REGION
+            }
+          }],
+          "gender": "MALE", // MALE, FEMALE, OTHER
+          "language": "en-US", // LANGUAGE
+          "company": "company" // VISITOR COMPANY NAME
+        }
       }
     );
 
-    // Push Identities
-    lpTag.identities = [];
-
-    // lpTag.identities.push(identityFn);
-    // function identityFn(callback) {
-    //   callback({
-    //     iss: "https://issuertesting1.com",
-    //     acr: "loa1",
-    //     sub: "Jack"
-    //   });
+    // //Send SDEs on event
+    // function sendSDE(data, eventInfo) {
+    //   lpTag.sdes.push(
+    //     {
+    //       "type": "prodView", //MANDATORY
+    //       "products": [{ //ARRAY OF PRODUCTS
+    //         "product": {
+    //           "name": "Chat Opened Shoes", //PRODUCT NAME
+    //           "category": "shoes", //PRODUCT CATEGORY NAME
+    //           "sku": "10305020", //PRODUCT SKU OR UNIQUE IDENTIFIER
+    //           "price": 119.95 //PRODUCT PRICE
+    //         }
+    //       }]
+    //     }
+    //   );
+    //   lpTag.sdes.send();
     // }
 
-    window.lpGetJWT_Issuer1 = (callback) => {
-      log("LP asked for id_token or auth code in Code Flow");
-      // Do your magic…
-      // On Success
-      callback("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKYWNrIiwiaXNzIjoiaHR0cHM6Ly9pc3N1ZXJ0ZXN0aW5nMS5jb20iLCJleHAiOjE3ODE4ODE4NjYsImlhdCI6MTY4NzE4NzQ2Nn0.SNhgSTUJ87NxYBAgQOx8UH8TxuIN85w9PblScP2fRq5QMmeZqN-UwxPAxE75kSuct9qeL5MqlLK92S6RZga8S8_2PxGIikX-Xsy7cRfVOQ-eUkXY1J_Cc4rik1Sr02rnfzrK9lJlSflIotUfgEgWag8DibVL4JYfx3D_EZZvnntzL3r4Q_6faNJaiEk3e0Pw1J1ncbfEUumCjvOUi-mlRHIUy0Q6JcLFlVxchPaP6Rbf3kpDMDka_8tHDJ8kqZqCh7IkEm7EnKrallLpkIxj3PuI9__9B-uar7I39QlbtJg0oJvOufrDljjq5l2k7sUp2p5xq2iwbyZwsIPZffSD7w");
-      // On Failure
-    }
-
-    //Send SDEs on event
-    function sendSDE(data, eventInfo) {
-      lpTag.sdes.push(
-        {
-          "type": "prodView", //MANDATORY
-          "products": [{ //ARRAY OF PRODUCTS
-            "product": {
-              "name": "Chat Opened Shoes", //PRODUCT NAME
-              "category": "shoes", //PRODUCT CATEGORY NAME
-              "sku": "10305020", //PRODUCT SKU OR UNIQUE IDENTIFIER
-              "price": 119.95 //PRODUCT PRICE
-            }
-          }]
-        }
-      );
-      lpTag.sdes.send();
-    }
-
-    lpTag.events.bind("LP_OFFERS", "OFFER_CLICK", sendSDE);
+    // lpTag.events.bind("LP_OFFERS", "OFFER_CLICK", sendSDE);
 
     //Send SDEs using .newPage
     function btnSendSDE() {
@@ -82,7 +75,7 @@
           sdes: [{
             "type": "cart",
             "total": 11.7,
-            "numItems": 6,
+            "numItems": 123456,
             "products": [
               {
                 "product": {
@@ -132,15 +125,15 @@
 
 </head>
 
-<body style="background:rgb(19, 129, 167);">
+<body style="background:rgba(173, 181, 184, 0.149);">
   <div id="checkoutContainer"></div>
 
-  <a href="https://api.whatsapp.com/send?phone=447411127470">
+  <!-- <a href="https://api.whatsapp.com/send?phone=447411127470">
     <img src="https://seeklogo.com/images/W/whatsapp-lollipop-logo-B1DF222734-seeklogo.com.png" height="60" width="60">
   </a>
   <h1>Jack's Page</h1>
-  <h2>Cart Total:</h2>
-  <h2 id="cartTotal">£120.32</h2>
+  <h2>Cart Total:</h2> -->
+  <!-- <h2 id="cartTotal">£120.32</h2> -->
   <button onclick="onCustomEngagementClick()">Custom Engagement</button>
   <button onClick="btnSendSDE()">Send SDE</button>
   <div id="LE-Hidden-Eng" style="display: none;"></div>
